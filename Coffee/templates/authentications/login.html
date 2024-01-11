@@ -1,0 +1,73 @@
+{% extends "coffeeApp/base.html" %}
+{% load static %}
+
+{% block title %}
+  Login
+{% endblock title %}
+{% block header %}
+<header id="header" class="fixed-top">
+  <div class="container d-flex align-items-center justify-content-between">
+    <!-- <a href="index.html" class="logo"><img src="{% static 'img/logo.png' %}" alt="" style="width : 500; height:500px; border-radius: 100; overflow: hidden;" class="img-fluid"></a> -->
+    <h1 class="logo"><a href="/f/coffee/">PurityPerks</a></h1>
+    <!-- Uncomment below if you prefer to use an image logo -->
+
+    <nav id="navbar" class="navbar">
+      <ul>
+        <li class="dropdown">
+          <a href="#"
+            ><span>Sign Un </span> <i class="bi bi-chevron-down"></i
+          ></a>
+          <ul>
+            <li><a href="{% url 'signup' %}">SignUp</a></li>
+          </ul>
+        </li>
+      </ul>
+      <i class="bi bi-list mobile-nav-toggle"></i>
+    </nav>
+    <!-- .navbar -->
+  </div>
+</header>
+<!-- End Header -->
+{% endblock header %}
+
+{% block content %}
+<div class="card bg-coffee-fancy p-5"> 
+  {% for message in messages %}
+    <!-- Alert message from bootstrap -->
+    <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+      <strong>{{ message }}</strong>
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+  {% endfor %}
+
+  <form action="" method="POST">
+    {% csrf_token %}
+    <h1 class="text-gold fs-2">Login</h1> 
+    <label for="email" class="p-2 text-gold">Email</label> 
+    <div class="form-group">
+      <input
+        type="email"
+        class="form-control p-2"
+        name="email"
+        id="email"
+        required
+      />
+    </div>
+    <label for="pass3" class="text-gold">Password</label> 
+    <div class="form-group">
+      <input
+        type="password"
+        class="form-control p-2"
+        name="pass1"
+        id="pass3"
+        required
+      />
+    </div>
+    <button class="btn btn-outline-coffee-fancy" type="submit">Login</button> 
+    <br />
+    <br />
+    New User?
+    <a href="/auth/signup/" class="text-gold">Signup</a>
+  </form>
+</div>
+{% endblock content %}

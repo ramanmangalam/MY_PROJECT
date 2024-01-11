@@ -1,0 +1,200 @@
+{% extends "coffeeApp/base.html" %}
+{% block title %}
+Contact
+{% endblock title %}
+
+{% block content %}
+<p style="color: azure;">If You have any payment Issue or for any issue, You can contact With us , Just Scroll down</p>
+{% endblock content %}
+
+
+{% block body %}
+<nav class="navbar bg-body-tertiary ">
+  <div class="container-fluid ">
+    {% comment %} <span class="navbar-brand mb-0 h1 text-center">Contact Us</span> {% endcomment %}
+    <h1 class="text-center">Contact Us</h1>
+  </div>
+</nav>
+<div class="container mt-2">
+  {% for message in messages %}
+    <!--=========  Alert message from bootstrap  ========== -->
+    <div class="alert alert-{{message.tags}} alert-dismissible fade show" role="alert">
+    <strong>{{message}}</strong>
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="close"></button>
+    </div>
+  {% endfor %}
+<div class="row">
+    <div class="col-md-4"></div>
+    <div class="col-md-4">
+      <form action="/f/contact/" method="post">
+        {% csrf_token %}
+        <label for="name" class="p-2">Full Name</label>
+        <div class="form-group">
+        <input
+            type="text"
+            class="form-control p-2"
+            name="name"
+            id="name"
+            required
+        />
+        </div>
+        <label for="email" class="p-2">Email</label>
+        <div class="form-group">
+        <input
+            type="email"
+            class="form-control p-2"
+            name="email"
+            id="email"
+            required
+        />
+        </div>
+        <label for="desc" class="p-2">How Can I Help you?</label>
+        <div class="form-group">
+        <textarea
+            type="text"
+            class="form-control p-2"
+            name="desc"
+            id="desc"
+            required>
+        </textarea>
+        </div>
+        <label for="phone" class="p-2">Phone</label>
+        <div class="form-group">
+        <input
+            type="number"
+            class="form-control p-2"
+            name="phone"
+            id="phone"
+            required
+        />
+        </div>
+        <div class="d-grid gap-2 col-6 mx-auto m-4">
+          <button type="submit" class="btn btn-primary" >Submit</button>
+        </div>
+        <br />
+    </form>
+    </div>
+    <div class="col-md-4"></div>
+</div>
+</div>
+
+    <!-- ======= Footer ======= -->
+    <footer id="footer">
+      <div class="footer-top">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-3 col-md-6 footer-contact">
+              <h3>PetStore</h3>
+              <p>
+                BTM STAGE 2nd Floor <br />
+                Banglore,BU 560102<br />
+                United States <br /><br />
+                <strong>Phone:</strong> 9061083300<br />
+                <strong>Email:</strong> ms4raman@gmail.com<br />
+              </p>
+            </div>
+
+            <div class="col-lg-2 col-md-6 footer-links">
+              <h4>Useful Links</h4>
+              <ul>
+                <li>
+                  <i class="bx bx-chevron-right"></i> <a href="#">Home</a>
+                </li>
+                <li>
+                  <i class="bx bx-chevron-right"></i> <a href="#">About us</a>
+                </li>
+                <li>
+                  <i class="bx bx-chevron-right"></i> <a href="#">Services</a>
+                </li>
+                <li>
+                  <i class="bx bx-chevron-right"></i>
+                  <a href="#">Terms of service</a>
+                </li>
+                <li>
+                  <i class="bx bx-chevron-right"></i>
+                  <a href="#">Privacy policy</a>
+                </li>
+              </ul>
+            </div>
+
+            <div class="col-lg-3 col-md-6 footer-links">
+              <h4>Our Services</h4>
+              <ul>
+                <li>
+                  <i class="bx bx-chevron-right"></i>
+                  <a href="#">Free Check up for pets</a>
+                </li>
+                <li>
+                  <i class="bx bx-chevron-right"></i>
+                  <a href="#">Grooming of Pets</a>
+                </li>
+                <li>
+                  <i class="bx bx-chevron-right"></i>
+                  <a href="#">Home Delivery Of Pets Products</a>
+                </li>
+                <li>
+                  <i class="bx bx-chevron-right"></i> <a href="#">Coupons</a>
+                </li>
+                <li>
+                  <i class="bx bx-chevron-right"></i>
+                  <a href="#">Burial Care</a>
+                </li>
+              </ul>
+            </div>
+
+            <div class="col-lg-4 col-md-6 footer-newsletter">
+              <h4>Join Our Products</h4>
+              <p>
+                Let's save our sad ones and provide them a home and give them
+                shelter <br />
+                Be a part of Donator
+              </p>
+              <form action="" method="post">
+                <input type="email" name="email" /><input
+                  type="submit"
+                  value="Subscribe"
+                />
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="container d-md-flex py-4">
+        <div class="me-md-auto text-center text-md-start">
+          <div class="copyright">
+            &copy; Copyright <strong><span>Tempo</span></strong
+            >. All Rights Reserved
+          </div>
+          <div class="credits">
+            <!-- All the links in the footer should remain intact. -->
+            <!-- You can delete the links only if you purchased the pro version. -->
+            <!-- Licensing information: https://bootstrapmade.com/license/ -->
+            <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/tempo-free-onepage-bootstrap-theme/ -->
+            Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+          </div>
+        </div>
+        <div class="social-links text-center text-md-right pt-3 pt-md-0">
+          <a href="https://twitter.com/i/flow/single_sign_on" class="twitter"
+            ><i class="bx bxl-twitter"></i
+          ></a>
+          <a href="https://m.facebook.com/" class="facebook"
+            ><i class="bx bxl-facebook"></i
+          ></a>
+          <a href="https://www.instagram.com/" class="instagram"
+            ><i class="bx bxl-instagram"></i
+          ></a>
+          <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
+          <a
+            href="https://www.linkedin.com/feed/?trk=guest_homepage-basic_google-one-tap-submit"
+            class="linkedin"
+            ><i class="bx bxl-linkedin"></i
+          ></a>
+        </div>
+      </div>
+    </footer>
+{% endblock body %}
+
+
+
+
